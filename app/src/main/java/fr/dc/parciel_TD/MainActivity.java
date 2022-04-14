@@ -4,9 +4,12 @@ import static java.lang.Integer.valueOf;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import java.io.Serializable;
 
 import fr.dc.parciel_TD.databinding.ActivityMainBinding;
 
@@ -26,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
                     if (Integer.parseInt(ui.nbDices.getText().toString()) >= 1 & Integer.parseInt(ui.nbDices.getText().toString()) <= 6) {
                         if (Integer.parseInt(ui.nbFaces.getText().toString()) >= 4 & Integer.parseInt(ui.nbFaces.getText().toString()) <= 12) {
+
+                            Intent dices = new Intent();
+                            dices.putExtra( "DICES" , Integer.parseInt(ui.nbDices.getText().toString()));
+                            Intent faces = new Intent();
+                            faces.putExtra("FACES", Integer.parseInt(ui.nbFaces.getText().toString()));
 
                         } else {
                             ui.nbFaces.setText("");
